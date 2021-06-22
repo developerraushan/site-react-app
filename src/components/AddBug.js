@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
 import { bugAdded } from '../site-helper/actions';
 import { useHistory } from 'react-router';
-
+import store from '../site-helper/store';
 
 const AddBug = () => {
     const history = useHistory();
