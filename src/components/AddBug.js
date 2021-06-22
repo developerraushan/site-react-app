@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+import {useDispatch} from 'react-redux';
+import { bugAdded } from '../site-helper/actions';
 
 const AddBug = () => {
+    const dispatch = useDispatch();
     const [inputField, setInputField] = useState("");
     const changeHandle = (event) => {
         setInputField(inputField => (event.target.value))
@@ -8,7 +11,7 @@ const AddBug = () => {
     const handleClick = (event) => {
         event.preventDefault();
         if(inputField !== '') {
-
+            dispatch(bugAdded(inputField))
         }
         setInputField(inputField => "");
     }
