@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
 import { bugAdded } from '../site-helper/actions';
+import { Link } from 'react-router-dom';
 
 const AddBug = () => {
     const dispatch = useDispatch();
@@ -12,6 +13,8 @@ const AddBug = () => {
         event.preventDefault();
         if(inputField !== '') {
             dispatch(bugAdded(inputField))
+        }else {
+            alert("Give a name to your bug")
         }
         setInputField(inputField => "");
     }
@@ -23,6 +26,7 @@ const AddBug = () => {
                 </div>
                 <button type = "submit" className = "btn btn-primary">Add</button>
             </form>
+            
         </div>
     )
 }
