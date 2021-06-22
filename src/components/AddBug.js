@@ -23,7 +23,7 @@ const AddBug = () => {
         
     }
     return (
-        <div>
+        <div className = "container mt-3">
             <form onSubmit = {handleClick}>
                 <div className = "mb-3">
                     <input type = "text" className = "form-control" placeholder = "Title Name Goes Here" id = "title" name = "title" value = {inputField} onChange = {changeHandle} />
