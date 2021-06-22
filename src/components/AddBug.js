@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
 import { bugAdded } from '../site-helper/actions';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
+
 
 const AddBug = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const [inputField, setInputField] = useState("");
     const changeHandle = (event) => {
@@ -13,10 +15,12 @@ const AddBug = () => {
         event.preventDefault();
         if(inputField !== '') {
             dispatch(bugAdded(inputField))
+            history.push("/");
         }else {
             alert("Give a name to your bug")
         }
         setInputField(inputField => "");
+        
     }
     return (
         <div>

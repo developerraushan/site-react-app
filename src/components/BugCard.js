@@ -2,9 +2,10 @@ import React from 'react';
 
 const BugCard = (props) => {
     return (
-        <div>
-            {props.bug.description}
-        </div>
+        <tr >
+            <td>{props.bug.id}</td>
+            <td>{props.bug.description}</td>
+        </tr>
     )
 }
 
