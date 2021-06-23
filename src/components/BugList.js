@@ -1,10 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { connect } from 'react-redux'
 import BugCard from './BugCard';
 
-const BugList = () => {
-    const bugs = useSelector(state => state);
-    //console.log(bugs);
+const BugList = (props) => {
+    const bugs = props.bugs;
+    
     return (
         <div className="container">
             <div className="row">
@@ -32,4 +32,10 @@ const BugList = () => {
     )
 }
 
-export default BugList
+const mapStateToProps = (state) => {
+    return {
+        bugs: state
+    }
+}
+
+export default connect(mapStateToProps) (BugList);

@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
-import {useDispatch} from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
 import { bugAdded } from '../site-helper/actions';
 import { useHistory } from 'react-router';
-import store from '../site-helper/store';
 
-const AddBug = () => {
+
+const AddBug = (props) => {
+    
     const history = useHistory();
     const dispatch = useDispatch();
     const [inputField, setInputField] = useState("");
@@ -14,7 +15,7 @@ const AddBug = () => {
     const handleClick = (event) => {
         event.preventDefault();
         if(inputField !== '') {
-            dispatch(bugAdded(inputField))
+            dispatch(props.bugAdded(inputField))
             history.push("/");
         }else {
             alert("Give a name to your bug")
@@ -34,5 +35,9 @@ const AddBug = () => {
         </div>
     )
 }
-
-export default AddBug
+const mapDispatchToProps = () =>{
+    return {
+        bugAdded
+    }
+}
+export default connect(mapDispatchToProps) (AddBug);
